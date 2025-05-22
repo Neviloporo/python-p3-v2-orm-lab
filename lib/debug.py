@@ -9,6 +9,7 @@ import ipdb
 
 
 def reset_database():
+    print("Resetting database...")
     Review.drop_table()
     Employee.drop_table()
     Department.drop_table()
@@ -16,7 +17,8 @@ def reset_database():
     Employee.create_table()
     Review.create_table()
 
-    # Create seed data
+    
+    print("Seeding data...")
     payroll = Department.create("Payroll", "Building A, 5th Floor")
     human_resources = Department.create(
         "Human Resources", "Building C, East Wing")
@@ -25,7 +27,8 @@ def reset_database():
     Review.create(2023, "Efficient worker", employee1.id)
     Review.create(2022, "Good work ethic", employee1.id)
     Review.create(2023, "Excellent communication skills", employee2.id)
-
+    
+    print("Database reset complete.\n")
 
 reset_database()
 ipdb.set_trace()
